@@ -78,7 +78,6 @@ The output of this stage looks like this, with the original image included for c
 
 ##Step 5. Determine Curvature
 
-
     ym_per_pix = 30/720 # meters per pixel in y dimension
     xm_per_pix = 3.7/590 # meters per pixel in x dimension
     y_eval = np.max(ploty)
@@ -104,9 +103,10 @@ The output of this stage looks like this, with the original image included for c
     cv2.putText(img, 'Left Curvature Radius = %d(m)' % left_curvature, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
     cv2.putText(img, 'Right Curvature Radius = %d(m)' % right_curvature, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
     cv2.putText(img, 'Distance from center = %d(cm) %s' % (np.absolute(distance), direction), (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-    return img;
-
+    
 ##Final Output
+    
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image6.JPG)
 
 
 ##Comments 

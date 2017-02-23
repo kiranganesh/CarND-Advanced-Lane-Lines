@@ -24,9 +24,7 @@ The sample undistorted image is given below:
 
 ##Processing Pipeline
 
-The core pipeline is defined as follows:
-
-def process_image(img):
+The core pipeline is defined as follows in the `process_image()` function.
 
     # Preprocess the image
     undistort_image = undistort(img, objpoints, imgpoints)
@@ -40,10 +38,23 @@ def process_image(img):
     processed_image = draw_stat(processed_image, left_curvature, right_curvature, distance)
     return processed_image
 
+Each of the above steps in the pipeline is described in more detail below.
+
+##Step 1. Correcting for Distortion
+
+The `undistort_image()` function described earlier is the first step of the pipeline and it corrects for the camera distortions
+
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image3.JPG)
+
+##Step 2. Creating Binary Image
+
 The code for generating the binary image is contained in the `create_binary_image()` function. It captures both the thresholded Sobel gradient transformation as well as color threshold transformation.
 
 The sample pictures of the individual and combined transformations are given below:
 
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image2.JPG)
+
+##Step 3. Perspective Transformation
+
 
 

@@ -79,8 +79,32 @@ The output of this stage looks like this, with the original image included for c
 ##Step 5. Determine Curvature
 
 
+    ym_per_pix = 30/720 # meters per pixel in y dimension
+    xm_per_pix = 3.7/590 # meters per pixel in x dimension
+    y_eval = np.max(ploty)
+
+    left_fit_cr = np.polyfit(ploty*ym_per_pix, leftx*xm_per_pix, 2)
+    right_fit_cr = np.polyfit(ploty*ym_per_pix, rightx*xm_per_pix, 2)
+
+    # Calculate the new radii of curvature
+    left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+    right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+
+    # Write dist from center
+    center = 640.
+    lane_x = rightx - leftx
+    center_x = (lane_x / 2.0) + leftx
+    distance = (center_x - center) * xm_per_pix
+
+    return (left_curverad, right_curverad, np.mean(distance * 100.0))
+
 ##Step 6. Annotate the image 
 
+    direction = 'L' if distance < 0 else 'R'
+    cv2.putText(img, 'Left Curvature Radius = %d(m)' % left_curvature, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+    cv2.putText(img, 'Right Curvature Radius = %d(m)' % right_curvature, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+    cv2.putText(img, 'Distance from center = %d(cm) %s' % (np.absolute(distance), direction), (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
+    return img;
 
 ##Final Output
 

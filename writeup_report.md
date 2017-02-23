@@ -64,9 +64,27 @@ Once the binary image is created, the following perspective transformation is us
     M = cv2.getPerspectiveTransform(src, dst)
     img2 = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
 
-This results in a transformation of the image like this:
+The perspective transform was calculated through a manual trial and error process by cutting out a trapezoid in the bottom half of the image. This results in a transformation of the image like this:
 
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image4.JPG)
+
+##Step 4. Fit Lane
+
+
+##Step 5. Determine Curvature
+
+
+##Step 6. Annotate the image 
+
+
+##Final Output
+
+
+##Comments 
+
+
+
+
 
 
 

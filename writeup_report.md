@@ -56,5 +56,17 @@ The sample pictures of the individual and combined transformations are given bel
 
 ##Step 3. Perspective Transformation
 
+Once the binary image is created, the following perspective transformation is used to create the birds-eye view of the portion of the road that's of interest. 
+
+    src = np.float32([[240,720],[580,450],[710,450],[1160,720]])
+    dst =  np.float32([[300,720],[300,0],[900,0],[900,720]])
+
+    M = cv2.getPerspectiveTransform(src, dst)
+    img2 = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
+
+This results in a transformation of the image like this:
+
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image4.JPG)
+
 
 

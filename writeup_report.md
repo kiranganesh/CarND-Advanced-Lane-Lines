@@ -12,13 +12,22 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-[//]: # (Image References)
-
-[image1]: ./examples/image1.jpg "Undistorted"
-[video1]: ./project_video.mp4 "Video"
-
 ##Camera Calibration
 
-The code for calibrating the camera is contained in two functions `calibrate_camera()` and `undistort_image()`. The former function takes in the set of test images and uses the cv2.findChessboardCorners function to collect the image points. This, together with a known definition of objectpoints together enable opencv API to calculate the distortion coefficients of the camera.
+The code for calibrating the camera is contained in two functions `calibrate_camera()` and `undistort_image()`. 
 
-![alt text][image1]
+The `calibrate_camera()` function takes in the set of test images and uses the cv2.findChessboardCorners function to collect the image points. This, together with a known definition of objectpoints together enable the `undistort_image()` to calculate the distortion coefficients of the camera.
+
+The sample undistorted image is given below:
+
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image1.JPG)
+
+##Binary Image Creation
+
+The code for generating the binary image is contained in the `create_binary_image()` function. It captures both the thresholded Sobel gradient transformation as well as color threshold transformation.
+
+The sample pictures of the individual and combined transformations are given below:
+
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image2.JPG)
+
+

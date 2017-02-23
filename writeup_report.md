@@ -68,15 +68,23 @@ The perspective transform was calculated through a manual trial and error proces
 
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image4.JPG)
 
-##Step 4. Find & Fit Lanes
+##Step 4. Find Lanes
 
-The find_lanes() procedure determines the left and right edges of the lane from the perspective transformed image. The fit_lanes() procedure does a 2nd order polynomial fit on the found leanes. These functions are  based on the sample code that was already provided by Udacity as part of the lessons.
+The `find_lanes()`procedure determines the left and right edges of the lane from the perspective transformed image. 
 
 The output of this stage looks like this, with the original image included for comparison.
 
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image5.JPG)
 
+The `fit_lanes()` procedure puts a filled polygon that is warped back to the original image.
+
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image7.JPG)
+
+Both these functions are largely based on the example code that was already provided by Udacity as part of the lessons.
+
 ##Step 5. Determine Curvature
+
+Again, with the assistance of the code already provided by Udacity, the curvature of the left and right lanes is computed as well as the distance by which the vehicle is off center.
 
     ym_per_pix = 30/720 # meters per pixel in y dimension
     xm_per_pix = 3.7/590 # meters per pixel in x dimension
@@ -98,6 +106,8 @@ The output of this stage looks like this, with the original image included for c
     return (left_curverad, right_curverad, np.mean(distance * 100.0))
 
 ##Step 6. Annotate the image 
+
+Once the values are known, the text data is added to the pictures as a visual annotation
 
     direction = 'L' if distance < 0 else 'R'
     cv2.putText(img, 'Left Curvature Radius = %d(m)' % left_curvature, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)

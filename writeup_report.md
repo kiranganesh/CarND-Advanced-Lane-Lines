@@ -22,7 +22,23 @@ The sample undistorted image is given below:
 
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image1.JPG)
 
-##Binary Image Creation
+##Processing Pipeline
+
+The core pipeline is defined as follows:
+
+def process_image(img):
+
+    # Preprocess the image
+    undistort_image = undistort(img, objpoints, imgpoints)
+    processed_image = create_binary_image(undistort_image)
+    processed_image = perspective_transform(processed_image)
+
+    # Extract data from the image
+    left_fit, right_fit, yvals, out_img = find_lanes(processed_image)
+    processed_image = fit_lane(processed_image, undistort_image, yvals, left_fit, right_fit)
+    left_curvature, right_curvature, distance = get_curvature(left_fit, right_fit, yvals)
+    processed_image = draw_stat(processed_image, left_curvature, right_curvature, distance)
+    return processed_image
 
 The code for generating the binary image is contained in the `create_binary_image()` function. It captures both the thresholded Sobel gradient transformation as well as color threshold transformation.
 

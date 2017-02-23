@@ -70,6 +70,11 @@ The perspective transform was calculated through a manual trial and error proces
 
 ##Step 4. Fit Lane
 
+The find_lanes() procedure determines the left and right edges of the lane from the perspective transformed image. This function is mostly based on the sample code that was already provided by Udacity as part of the lessons.
+
+The output of this stage looks like this, with the original image included for comparison.
+
+![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image5.JPG)
 
 ##Step 5. Determine Curvature
 

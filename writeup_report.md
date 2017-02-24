@@ -107,7 +107,7 @@ Again, with the assistance of the code already provided by Udacity, the curvatur
 
 ##Step 6. Annotate the image 
 
-Once the values are known, the text data is added to the pictures as a visual annotation
+Once the curvature values are known, the text data is added to the pictures as an annotation. 
 
     direction = 'L' if distance < 0 else 'R'
     cv2.putText(img, 'Left Curvature Radius = %d(m)' % left_curvature, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
@@ -115,9 +115,14 @@ Once the values are known, the text data is added to the pictures as a visual an
     cv2.putText(img, 'Distance from center = %d(cm) %s' % (np.absolute(distance), direction), (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
     
 ##Final Output
-    
+
+A sample image that is processed through the full pipeline looks like this:
+
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image6.JPG)
 
+A sample video that is processed through the full pipeline looks like this:
+
+https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/output_video/project_video.mp4
 
 ##Comments 
 

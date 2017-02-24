@@ -116,6 +116,13 @@ Once the curvature values are known, the text data is added to the pictures as a
     
 ##Final Output
 
+The main function of the program has two routines 
+
+    find_lanes_image()    
+    find_lanes_video()
+
+The first one processes the test images and the second one process the video.
+
 A sample image that is processed through the full pipeline looks like this:
 
 ![Image](https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/examples/image6.JPG)

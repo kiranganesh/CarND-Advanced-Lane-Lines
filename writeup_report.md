@@ -126,6 +126,16 @@ https://github.com/kiranganesh/CarND-Advanced-Lane-Lines/blob/master/output_vide
 
 ##Comments 
 
+The main learning for me from this project was the understanding of the various steps to go from a raw highway image to a higher level mathematical representation of a lane and the vehicle's position in it. What seems like an abstract challenge is broken down into a series of simple and manageable steps.
+
+Finding the right threshold values for the binary images was a difficult and time intensive process. I am not sure if the solution I have is necessarily an optimal one; its just a working solution. An improvement for the future would be to write some code to automatically find an optimal threshold instead of experiementing manually. The perspective transform also was done with manual geometries and possibly there's a better way to do it more automatically.
+
+All of these seems to work because there is no traffic in the lane of interest. Looking at the video of the harder challenge, I can at once see several complications - varying degrees of sunlight against the camera, vehicle that cuts in on the front, non uniform terrain of the road etc. That challenge video very quickly makes it clear that this example here is just a simple start and a lot more considerations need to be addressed before it becomes a more robust solution for real list.
+
+
+
+
+
 
 
 
